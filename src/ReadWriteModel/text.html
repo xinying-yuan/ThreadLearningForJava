@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,4 +16,23 @@ readLock.lock()
 unlock()...
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Explainations For this package</title>
+</head>
+<body>
+Data类是线程要进行访问的数据类，由于要实现并发支持所以要实现同步机制
+Data 可以 搭配ReadWriteLock类使用，其中本包中的ThinkForThis || 2类是为了验证 RWL 类变量waiting和writeFirst字段的必要性而设置的
+Java api中也提供了如此的接口 所以 Data2类是使用 java 自己提供的API实现的~
+ReadWriteLock lock=new ReentrantReadWriteLock;
+Lock readlock=lock.readLock
+Lock writelock=lock.writeLock
+readLock.lock()
+unlock()...
+
+</body>
+>>>>>>> 5cd2fd3ecec5025f95c74093552dc9073f6f82eb
 </html>
