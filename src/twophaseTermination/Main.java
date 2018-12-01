@@ -8,13 +8,53 @@ import java.util.concurrent.Executors;
 
 import org.omg.CORBA.PRIVATE_MEMBER;
 
+import com.sun.org.apache.xml.internal.serialize.Printer;
+
+import readWriteModePackage.ThinkForThis;
+
 public class Main {
 
 	private final static int threads_count=3;
 	public static void main(String[] args) {
 		System.out.println("main starts");
-		test3();
-		System.out.println("main ends");
+//		test1();
+//		test2();
+//		test3();
+		Thread thread=new Thread()
+				{
+					
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+					while(true) {
+						try {
+							if(Thread.interrupted()) {
+								throw new InterruptedException();
+							}
+							System.out.println("@");
+						} catch (Exception e) {
+							// TODO: handle exception
+							while(true) {
+								System.out.println("#");
+							}
+							
+						}
+					}
+						
+						
+					}};
+		thread.start();
+		try {
+			Thread.sleep(5000);
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		thread.interrupt();
+        System.out.println("end of main");
+         
+		//System.out.println("main ends");
 	}
 	
 	public static  void test3() {
