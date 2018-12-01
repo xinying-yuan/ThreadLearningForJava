@@ -20,38 +20,12 @@ public class Main {
 //		test1();
 //		test2();
 //		test3();
-		Thread thread=new Thread()
-				{
-					
-					@Override
-					public void run() {
-						// TODO Auto-generated method stub
-					while(true) {
-						try {
-							if(Thread.interrupted()) {
-								throw new InterruptedException();
-							}
-							System.out.println("@");
-						} catch (Exception e) {
-							// TODO: handle exception
-							while(true) {
-								System.out.println("#");
-							}
-							
-						}
-					}
-						
-						
-					}};
-		thread.start();
-		try {
-			Thread.sleep(5000);
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		thread.interrupt();
+		//Thread.interruptee()方法获取的是currentThread的中断状态，会清除当前线程的中断状态
+		//而isInterrupted()方法的调用者则是线程对象
+		//thread.isInterrupted(),并且不会清除中断状态
+        Thread.currentThread().interrupt();
+        System.out.println(Thread.interrupted());
+        System.out.println(Thread.interrupted());
         System.out.println("end of main");
          
 		//System.out.println("main ends");
